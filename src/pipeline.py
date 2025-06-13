@@ -1,34 +1,25 @@
 import pandas as pd
 
-csv_path = "/Users/jsthiara/Desktop/NYC_Airbnb_Pipeline/data/raw/AB_NYC_2019.csv"
-df = pd.read_csv(csv_path)
 
-print(df.head())
+def clean_airbnb_data(input_path: str, output_path: str) -> None:
+    """
+    Reads raw Airbnb data, cleans it by dropping duplicates and nulls,
+    then saves the cleaned data to a new CSV.
 
-"""1. First, let's drop duplicates"""
+    Parameters:
+        input_path (str): Path to the raw CSV.
+        output_path (str): Path where the cleaned CSV will be saved.
+    """
+    df = pd.read_csv(input_path)
 
-df.drop_duplicates()
+    # Drop duplicates
+    df = df.drop_duplicates()
 
-"""2. Secondly, let's remove nulls"""
+    # Drop rows with any null values
+    df = df.dropna()
 
-df.dropna()
+    # Save cleaned DataFrame
+    df.to_csv(output_path, index=False)
 
-print(df.head())
-
-
-"""2. Write this to a csv to test it is working """
-
-# cleaned.to_csv("/Users/jsthiara/Desktop/NYC_Airbnb_Pipeline/data/cleaned/AB_NYC_2019_cleaned.csv", index=False)
-
-# print("New data Written to CSV")
-
-### TO DO ###:
-
-# 1. Remove duplicates
-
-# 2. Remove nulls
-
-# 3. Convert text and numeric fields to consistent formats e.g. price/dates
-
-# 4. Filter Outliers and invalid entries
+    print("Data has been cleaned and written to a new CSV")
 

@@ -61,3 +61,7 @@ data/cleaned/
 
 # Python virtual environments (adjust if your venv folder has a different name)
 venv/
+data/.DS_Store
+.DS_Store
+data/.DS_Store
+.idea/NYC_Airbnb_Pipeline.iml
