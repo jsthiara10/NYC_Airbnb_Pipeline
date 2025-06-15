@@ -2,3 +2,5 @@ pandas
 numpy
 pathlib
 pytest
+regex
+
