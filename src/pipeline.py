@@ -27,18 +27,29 @@ class AirbnbCleaner:
         self.clean_host_name()
         return self.df
 
-    def drop_duplicates(self): # drop duplicate rows
+    def drop_duplicates(self):
         self.df.drop_duplicates(inplace=True)
 
-    def drop_nulls(self): # drops nulls values
+    def drop_nulls(self):
         self.df.dropna(inplace=True)
 
+    def clean_host_name(self):
+        def clean_name(name):
+            if pd.isnull(name):
+                return name
+            name = str(name).strip()
+            name = self._split_camel_case(name)
+            name = self._replace_and(name)
+            name = name.title()
+            return name
+
+        self.df["host_name"] = self.df["host_name"].apply(clean_name)
+
+    def _split_camel_case(self, name: str) -> str:
+        return re.sub(r"(?<=[a-z])(?=[A-Z])", " ", name)
+
+    def _replace_and(self, name: str) -> str:
+        return re.sub(r"\band\b", "&", name, flags=re.IGNORECASE)
 
 
-
-# 1. we have names such as 'MaryEllen'. I want to split those strings by doing something like 'Mary Ellen'.
-
-# def split_camel_case(name):
-#     return re.sub(r'(?<=[a-z])(?=[A-Z])', ' ', name)
-
-# 2. next, i want to replace 'and' with a & in those columns
+print("Data cleaned and loaded into a new CSV")
