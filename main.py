@@ -1,9 +1,11 @@
-from src.pipeline import clean_airbnb_data
-from pathlib import Path
+import pandas as pd
+from src.pipeline import AirbnbCleaner
 
-if __name__ == "__main__":
-    # Use relative paths from the root of the project
-    input_path = "data/raw/AB_NYC_2019.csv"
-    output_path = "data/cleaned/AB_NYC_2019_cleaned.csv"
+input_path = "data/raw/AB_NYC_2019.csv"
+output_path = "data/cleaned/AB_NYC_2019_cleaned.csv"
 
-    clean_airbnb_data(input_path, output_path)
+df = pd.read_csv(input_path)
+cleaner = AirbnbCleaner(df)
+cleaned_df = cleaner.clean()
+cleaned_df.to_csv(output_path, index=False)
+
