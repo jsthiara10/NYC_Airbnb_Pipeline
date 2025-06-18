@@ -25,6 +25,7 @@ class AirbnbCleaner:
         self.drop_duplicates()
         self.drop_nulls()
         self.clean_host_name()
+        self.remove_zero_reviews()
         return self.df
 
     def drop_duplicates(self):
@@ -50,6 +51,13 @@ class AirbnbCleaner:
 
     def _replace_and(self, name: str) -> str:
         return re.sub(r"\band\b", "&", name, flags=re.IGNORECASE)
+
+    """Remove listings that have 0 number of reviews"""
+
+    def remove_zero_reviews(self):
+        self.df = self.df[self.df["number_of_reviews"] > 0]
+
+
 
 
 print("Data cleaned and loaded into a new CSV")
