@@ -1,5 +1,6 @@
 import pandas as pd
 import regex as re
+import argparse
 
 """
 🧠 Conceptual Overview:
@@ -58,6 +59,19 @@ class AirbnbCleaner:
         self.df = self.df[self.df["number_of_reviews"] > 0]
 
 
+# 🧪 CLI Runner
+def run_pipeline(input_path, output_path):
+    df = pd.read_csv(input_path)
+    cleaner = AirbnbCleaner(df)
+    cleaned_df = cleaner.clean()
+    cleaned_df.to_csv(output_path, index=False)
+    print("✅ Data cleaned and saved to:", output_path)
 
 
-print("Data cleaned and loaded into a new CSV")
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", required=True, help="Path to the raw input CSV")
+    parser.add_argument("--output", required=True, help="Path to save the cleaned CSV")
+    args = parser.parse_args()
+
+    run_pipeline(args.input, args.output)
