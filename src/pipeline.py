@@ -19,10 +19,11 @@ and sets up a solid foundation for scaling, testing, and CI/CD integration.
 
 
 class AirbnbCleaner:
-    def __init__(self, df: pd.DataFrame):
+    def __init__(self, df: pd.DataFrame): # the constructor takes the pandas df as input and makes a copy of it to
+        # avoid modifying the original
         self.df = df.copy()
 
-    def clean(self):
+    def clean(self): # these apply all the individual cleaning steps in order
         self.drop_duplicates()
         self.drop_nulls()
         self.clean_host_name()
@@ -47,7 +48,7 @@ class AirbnbCleaner:
 
         self.df["host_name"] = self.df["host_name"].apply(clean_name)
 
-    def _split_camel_case(self, name: str) -> str:
+    def _split_camel_case(self, name: str) -> str: # makes strings consistent e.g. John Smith, instead of 'John smith'
         return re.sub(r"(?<=[a-z])(?=[A-Z])", " ", name)
 
     def _replace_and(self, name: str) -> str:
