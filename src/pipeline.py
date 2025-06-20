@@ -1,5 +1,6 @@
 import pandas as pd
 import regex as re
+import argparse
 
 """
 🧠 Conceptual Overview:
@@ -18,10 +19,11 @@ and sets up a solid foundation for scaling, testing, and CI/CD integration.
 
 
 class AirbnbCleaner:
-    def __init__(self, df: pd.DataFrame):
+    def __init__(self, df: pd.DataFrame): # the constructor takes the pandas df as input and makes a copy of it to
+        # avoid modifying the original
         self.df = df.copy()
 
-    def clean(self):
+    def clean(self): # these apply all the individual cleaning steps in order
         self.drop_duplicates()
         self.drop_nulls()
         self.clean_host_name()
@@ -46,7 +48,7 @@ class AirbnbCleaner:
 
         self.df["host_name"] = self.df["host_name"].apply(clean_name)
 
-    def _split_camel_case(self, name: str) -> str:
+    def _split_camel_case(self, name: str) -> str: # makes strings consistent e.g. John Smith, instead of 'John smith'
         return re.sub(r"(?<=[a-z])(?=[A-Z])", " ", name)
 
     def _replace_and(self, name: str) -> str:
@@ -58,6 +60,19 @@ class AirbnbCleaner:
         self.df = self.df[self.df["number_of_reviews"] > 0]
 
 
+# 🧪 CLI Runner
+def run_pipeline(input_path, output_path):
+    df = pd.read_csv(input_path)
+    cleaner = AirbnbCleaner(df)
+    cleaned_df = cleaner.clean()
+    cleaned_df.to_csv(output_path, index=False)
+    print("✅ Data cleaned and saved to:", output_path)
 
 
-print("Data cleaned and loaded into a new CSV")
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", required=True, help="Path to the raw input CSV")
+    parser.add_argument("--output", required=True, help="Path to save the cleaned CSV")
+    args = parser.parse_args()
+
+    run_pipeline(args.input, args.output)
