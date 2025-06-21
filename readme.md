@@ -1,43 +1,101 @@
-# **🧼 Project Overview**
+# **🏡 NYC Airbnb Data Cleaning Pipeline**
 
-**NYC Airbnb Data Cleaning Pipeline** is a data engineering project that processes raw Airbnb listing data from New York City and transforms it into a clean, structured, and analysis-ready format.
+This project is a lightweight, testable, and extensible data pipeline that cleans and transforms raw NYC Airbnb listings into structured data ready for analysis or machine learning.
 
-**The goal** of this project is to simulate a real-world ETL pipeline using Python and pandas. It reads a raw CSV file, performs a series of cleaning and transformation steps — including handling missing values, fixing data types, removing duplicates, normalizing column names, and filtering invalid entries — and then outputs a cleaned CSV for use in analytics, visualization, or machine learning workflows.
+## 📦 Features
 
-This project demonstrates key data engineering skills such as:
+✅ Object-oriented cleaning with AirbnbCleaner class
 
-Working with messy real-world data
+✅ Handles nulls, duplicates, inconsistent naming conventions
 
-Building modular, reusable pipeline code
+✅ Converts camelCase to title case and replaces "and" with &
 
-Designing reproducible data processing workflows
+✅ Drops listings with 0 reviews
 
-Preparing datasets for downstream analysis
+✅ Creates separate sheets by neighbourhood group (coming soon)
 
-The cleaned data can be used to power dashboards, generate business insights, or serve as the input for predictive models (e.g., estimating nightly prices, predicting availability, etc.).
+✅ Automated testing with pytest and CI via GitHub Actions
 
+✅ Scheduled daily runs with cron on local machine
 
+✅ Logging for data quality monitoring
 
-## **Folder Structure**
+## 🧰 Tech Stack
 
+Python 3.11+
 
+pandas
 
-````bash
-NYC_Airbnb_Pipeline/
-├── data/
-│   ├── raw/                 # Original CSV files (e.g., from Kaggle)
-│   └── cleaned/             # Output from the cleaning pipeline
-├── notebooks/
-│   └── EDA.ipynb            # Exploratory Data Analysis
-├── src/
-│   ├── __init__.py
-│   ├── pipeline.py          # Core pipeline logic (ETL steps)
-│   └── utils.py             # Helper functions (e.g., renaming, parsing)
-├── tests/
-│   └── test_pipeline.py     # Unit tests for your pipeline
-├── main.py                  # Entry point for running the pipeline
-├── requirements.txt         # Python dependencies
-├── README.md                # Project overview and instructions
-├── .gitignore               # Files to ignore in Git
-└── .env (optional)          # If you ever add configs or API keys
-```
+pytest
+
+GitHub Actions (CI)
+
+cron (for scheduled local runs)
+
+Google Cloud (coming soon)
+
+## 🚀 Getting Started
+
+## 1. Clone the repo
+
+git clone https://github.com/jsthiara10/NYC_Airbnb_Pipeline.git
+cd NYC_Airbnb_Pipeline
+
+## 2. Create a virtual environment
+
+python3 -m venv venv
+source venv/bin/activate
+
+## 3. Install dependencies
+
+pip install -r requirements.txt
+
+## 4. Run the pipeline
+
+python main.py
+
+This will read the raw Airbnb dataset from data/raw/AB_NYC_2019.csv, clean it using AirbnbCleaner, and write the result to data/cleaned/AB_NYC_2019_cleaned.csv.
+
+## ✅ Running Tests
+
+PYTHONPATH=. pytest
+
+All tests live in the /tests folder and validate data cleaning behaviors like null removal, duplicate dropping, and host name formatting.
+
+## 🤖 GitHub Actions (CI)
+
+This repo uses GitHub Actions to automatically run tests on every push or pull request to main.
+
+CI config lives in: .github/workflows/ci.yml
+
+## ⏰ Automating the Job with Cron
+
+You can schedule the pipeline to run automatically on your Mac using a cron job.
+
+Example: Run daily at 11:50 AM
+
+crontab -e
+
+Add:
+
+50 11 * * * /path/to/venv/bin/python /path/to/NYC_Airbnb_Pipeline/main.py
+
+☁️ Cloud Deployment (Coming Soon)
+
+Planned future setup includes:
+
+Migrating the pipeline to run in the cloud (e.g., GCP Cloud Functions or Cloud Run)
+
+Uploading cleaned data to Google Cloud Storage
+
+Monitoring and alerting via GCP tools
+
+## 📌 Roadmap
+
+TBC
+
+## 👨‍💼 Author
+
+Built by Jasraj Singh Thiara
+
+Feel free to connect or contribute!
