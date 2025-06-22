@@ -1,1 +1,0 @@
-30 16 * * * cd /Users/jsthiara/Desktop/NYC_Airbnb_Pipeline && /path/to/your/python3 src/pipeline.py --input data/raw/AB_NYC_2019.csv --output data/cleaned/AB_NYC_2019_cleaned.csv
