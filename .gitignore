@@ -67,3 +67,9 @@ data/.DS_Store
 data/.DS_Store
 .idea/NYC_Airbnb_Pipeline.iml
 .gitattributes
+
+# Terraform artifacts
+.terraform.lock.hcl
+license.txt
+terraform-provider-google_v6.40.0_x5
+terraform.tfstate
