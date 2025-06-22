@@ -83,7 +83,7 @@ Add:
 ```
 50 11 * * * /path/to/venv/bin/python /path/to/NYC_Airbnb_Pipeline/main.py
 ```
-☁️ Cloud Deployment (In-development)
+**☁️ Cloud Deployment (In-development)**
 
 Planned future setup includes:
 
