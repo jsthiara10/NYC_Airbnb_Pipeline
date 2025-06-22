@@ -32,7 +32,9 @@ GitHub Actions (CI)
 
 cron (for scheduled local runs)
 
-Google Cloud (coming soon)
+Google Cloud (in-development)
+
+Terraform (for GCS Buckets)
 
 ## 🚀 Getting Started
 
@@ -81,7 +83,7 @@ Add:
 ```
 50 11 * * * /path/to/venv/bin/python /path/to/NYC_Airbnb_Pipeline/main.py
 ```
-☁️ Cloud Deployment (Coming Soon)
+☁️ Cloud Deployment (In-development)
 
 Planned future setup includes:
 
