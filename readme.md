@@ -37,29 +37,30 @@ Google Cloud (coming soon)
 ## 🚀 Getting Started
 
 ## 1. Clone the repo
-
+```
 git clone https://github.com/jsthiara10/NYC_Airbnb_Pipeline.git
 cd NYC_Airbnb_Pipeline
+```
 
 ## 2. Create a virtual environment
-
+```
 python3 -m venv venv
 source venv/bin/activate
-
+```
 ## 3. Install dependencies
-
+```
 pip install -r requirements.txt
-
+```
 ## 4. Run the pipeline
-
+```
 python main.py
-
+```
 This will read the raw Airbnb dataset from data/raw/AB_NYC_2019.csv, clean it using AirbnbCleaner, and write the result to data/cleaned/AB_NYC_2019_cleaned.csv.
 
 ## ✅ Running Tests
-
+```
 PYTHONPATH=. pytest
-
+```
 All tests live in the /tests folder and validate data cleaning behaviors like null removal, duplicate dropping, and host name formatting.
 
 ## 🤖 GitHub Actions (CI)
@@ -73,13 +74,13 @@ CI config lives in: .github/workflows/ci.yml
 You can schedule the pipeline to run automatically on your Mac using a cron job.
 
 Example: Run daily at 11:50 AM
-
+```
 crontab -e
-
+```
 Add:
-
+```
 50 11 * * * /path/to/venv/bin/python /path/to/NYC_Airbnb_Pipeline/main.py
-
+```
 ☁️ Cloud Deployment (Coming Soon)
 
 Planned future setup includes:
