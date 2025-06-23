@@ -1,5 +1,5 @@
 import pandas as pd
-from cloud.src.pipeline import AirbnbCleaner
+from src.pipeline import AirbnbCleaner
 
 
 def test_clean_airbnb_data(tmp_path):

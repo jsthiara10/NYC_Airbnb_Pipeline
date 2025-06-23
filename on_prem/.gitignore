@@ -1,0 +1,75 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+# If you use pipenv or poetry lockfiles
+Pipfile.lock
+poetry.lock
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+../.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+
+# macOS system files
+.DS_Store
+
+# Environments
+.env
+.env.*
+
+# Logs
+*.log
+
+# Data folders (ignore cleaned output if you don't want to track it)
+cloud/data/cleaned/
+
+# Ignore any large raw data if you prefer not to push (optional)
+# data/raw/
+
+# Python virtual environments (adjust if your venv folder has a different name)
+venv/
+cloud/data/.DS_Store
+.DS_Store
+cloud/data/.DS_Store
+.idea/NYC_Airbnb_Pipeline.iml
+.gitattributes
+
+# Terraform artifacts
+.terraform.lock.hcl
+license.txt
+terraform-provider-google_v6.40.0_x5
+terraform.tfstate
