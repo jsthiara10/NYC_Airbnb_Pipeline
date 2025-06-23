@@ -5,5 +5,4 @@ pytest
 regex
 argparse
 datetime
-logging
 xlsxwriter
