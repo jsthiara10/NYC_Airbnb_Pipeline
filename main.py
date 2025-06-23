@@ -1,11 +1,11 @@
 import pandas as pd
-from src.pipeline import AirbnbCleaner
+from cloud.src.pipeline import AirbnbCleaner
 from pathlib import Path
 
 # Input and Output Paths
-input_path = Path("data/raw/AB_NYC_2019.csv")
-output_path = Path("data/cleaned/AB_NYC_2019_cleaned.csv")
-excel_path = Path("data/cleaned/AB_NYC_2019_cleaned_by_neighbourhood.xlsx")
+input_path = Path("cloud/data/raw/AB_NYC_2019.csv")
+output_path = Path("cloud/data/cleaned/AB_NYC_2019_cleaned.csv")
+excel_path = Path("cloud/data/cleaned/AB_NYC_2019_cleaned_by_neighbourhood.xlsx")
 
 # Load the raw data
 

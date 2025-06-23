@@ -55,16 +55,16 @@ coverage.xml
 *.log
 
 # Data folders (ignore cleaned output if you don't want to track it)
-data/cleaned/
+cloud/data/cleaned/
 
 # Ignore any large raw data if you prefer not to push (optional)
 # data/raw/
 
 # Python virtual environments (adjust if your venv folder has a different name)
 venv/
-data/.DS_Store
+cloud/data/.DS_Store
 .DS_Store
-data/.DS_Store
+cloud/data/.DS_Store
 .idea/NYC_Airbnb_Pipeline.iml
 .gitattributes
 
