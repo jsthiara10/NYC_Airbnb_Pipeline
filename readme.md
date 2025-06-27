@@ -1,4 +1,4 @@
-# **🏡 NYC Airbnb Data Cleaning Pipeline**
+# **🏡 NYC Airbnb Data Cleaning Pipeline (ON-PREM VERSION)**
 
 This project is a lightweight, testable, and extensible data pipeline that cleans and transforms raw NYC Airbnb listings into structured data ready for analysis or machine learning.
 
