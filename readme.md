@@ -83,17 +83,9 @@ Add:
 ```
 50 11 * * * /path/to/venv/bin/python /path/to/NYC_Airbnb_Pipeline/main.py
 ```
-**☁️ Cloud Deployment **
+## ☁️ Cloud Deployment
 
 **Link to Google Cloud deployment repo: https://github.com/jsthiara10/Cloud-Airbnb-Pipeline**
-
-Planned future setup includes:
-
-Migrating the pipeline to run in the cloud (e.g., GCP Cloud Functions or Cloud Run)
-
-Uploading cleaned data to Google Cloud Storage
-
-Monitoring and alerting via GCP tools
 
 
 ## 👨‍💼 Author
